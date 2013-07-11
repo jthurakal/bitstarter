@@ -3,8 +3,8 @@ var fs = require('fs');
 var app = express.createServer(express.logger());
 
 app.get('/', function(request, response) {
-  var buffer = new Buffer(fs.readFile('index.html'), "utf-8"))
-  response.send(buffer.toString());
+  var buffer = new buffer()
+  response.send(buffer.toString('utc 8', fs.readFileSync("index.html")));
 });
 
 var port = process.env.PORT || 5000;
